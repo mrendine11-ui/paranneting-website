@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Services | Paranneting</title>
-<meta name="description" content="1:1 coaching, family packages, and workshops from Paranneting, built around your child's real stage.">
+<meta name="description" content="1-on-1 coaching, classes and workshops, and a monthly resource membership from Paranneting.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
@@ -13,17 +13,17 @@
 
 <header class="site-header">
   <div class="wrap">
-    <a class="logo" href="index.html">Paranne<span>ting</span></a>
+    <a class="logo" href="index.html">Par<span>anne</span>ting</a>
     <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">&#9776;</button>
     <nav class="main-nav" aria-label="Primary">
       <ul>
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="services.html" aria-current="page">Services</a></li>
-        <li><a href="resources.html">Resources</a></li>
         <li><a href="collaborate.html">Collaborate</a></li>
+        <li><a href="blog.html">Blog</a></li>
         <li><a href="contact.html">Contact</a></li>
-        <li><a class="btn btn-primary" href="https://tr.ee/_DA8OAI5lu" target="_blank" rel="noopener">Book a Call</a></li>
+        <li><a class="btn btn-primary" href="https://buymeacoffee.com/paranneting/extras" target="_blank" rel="noopener">Book a Call</a></li>
       </ul>
     </nav>
   </div>
@@ -33,45 +33,158 @@
   <section class="hero" style="padding-bottom:20px;">
     <div class="wrap" style="grid-template-columns:1fr;max-width:760px;">
       <div>
-        <span class="eyebrow">Services</span>
-        <h1>Support that matches how you actually want to work.</h1>
-        <p class="lede">Whether you want a single conversation or ongoing coaching, here's how families work with Paranneting.</p>
+        <span class="eyebrow">What We Offer</span>
+        <h1>Services Built Around You</h1>
+        <p class="lede">Every parent's journey is unique. Our offerings, from intimate coaching to immersive workshops and digital tools, are designed to meet you exactly where you are.</p>
       </div>
     </div>
   </section>
 
   <section class="band band-cream">
     <div class="wrap">
-      <div class="grid grid-3">
-        <div class="card">
-          <span class="stage">1:1 Coaching</span>
-          <h3>Private Coaching Sessions</h3>
-          <p>Ongoing, personalized sessions focused on your child's specific stage and your family's specific challenges. Weekly or biweekly cadence.</p>
+      <div class="tabs" role="tablist" aria-label="Service categories">
+        <button class="tab-btn" role="tab" data-tab="panel-coaching" aria-selected="true">1-on-1 Coaching</button>
+        <button class="tab-btn" role="tab" data-tab="panel-workshops" aria-selected="false">Classes &amp; Workshops</button>
+        <button class="tab-btn" role="tab" data-tab="panel-digital" aria-selected="false">Digital Content</button>
+      </div>
+
+      <div id="panel-coaching" class="tab-panel active" role="tabpanel">
+        <div class="grid grid-3">
+          <div class="offer-card">
+            <h3>Needs Assessment</h3>
+            <p style="color:var(--espresso-soft);font-size:0.95rem;">Initial Consultation</p>
+            <p>A complimentary 15-minute session to understand your needs, explore your goals, and determine how Paranneting can best support your journey.</p>
+            <div class="offer-head">
+              <span class="offer-price">Free</span>
+              <span class="offer-duration">15 min</span>
+            </div>
+            <ul>
+              <li>Personalized goal mapping</li>
+              <li>Identify key growth areas</li>
+              <li>No commitment required</li>
+            </ul>
+            <a class="btn btn-primary" href="https://buymeacoffee.com/paranneting/extras" target="_blank" rel="noopener">Book This</a>
+          </div>
+
+          <div class="offer-card">
+            <h3>Consultation Session</h3>
+            <p style="color:var(--espresso-soft);font-size:0.95rem;">Follow-up Session</p>
+            <p>A follow-up session to review the outcomes of your needs assessment, discuss applicable materials and relevant resources, and build an actionable plan together.</p>
+            <div class="offer-head">
+              <span class="offer-price">$50</span>
+              <span class="offer-duration">45 min</span>
+            </div>
+            <ul>
+              <li>Review needs assessment</li>
+              <li>Curated resource recommendations</li>
+              <li>Actionable plan discussion</li>
+            </ul>
+            <a class="btn btn-primary" href="https://buymeacoffee.com/paranneting/extras" target="_blank" rel="noopener">Book This</a>
+          </div>
+
+          <div class="offer-card popular">
+            <span class="popular-ribbon">Most Popular</span>
+            <h3>Parenting with Anne</h3>
+            <p style="color:var(--espresso-soft);font-size:0.95rem;">Ongoing Support Sessions</p>
+            <p>Commit to 3 sessions per month for ongoing, personalized support with Anne. Each session builds on the last to keep you moving forward with confidence.</p>
+            <div class="offer-head">
+              <span class="offer-price">$120</span>
+              <span class="offer-duration">3&times;45 min / month</span>
+            </div>
+            <ul>
+              <li>3 dedicated sessions/month</li>
+              <li>Ongoing personalized support</li>
+              <li>Progress tracking</li>
+            </ul>
+            <a class="btn btn-primary" href="https://buymeacoffee.com/paranneting/extras" target="_blank" rel="noopener">Book This</a>
+          </div>
         </div>
-        <div class="card">
-          <span class="stage">One-time</span>
-          <h3>Single Strategy Session</h3>
-          <p>A focused 45-minute session to work through one specific issue, like sleep, a school transition, or a tough behavior pattern, and leave with a plan.</p>
+      </div>
+
+      <div id="panel-workshops" class="tab-panel" role="tabpanel">
+        <div class="grid grid-3">
+          <div class="offer-card">
+            <h3>Child Development</h3>
+            <p>Explore the stages of cognitive, physical, and emotional growth from infancy through adolescence. This initial consultation helps you understand what to expect at each milestone and how to nurture your child's evolving needs.</p>
+            <div class="offer-head">
+              <span class="offer-price">Free</span>
+              <span class="offer-duration">Initial Consultation</span>
+            </div>
+            <ul>
+              <li>Milestone timelines</li>
+              <li>Age-appropriate expectations</li>
+              <li>Individualized guidance</li>
+            </ul>
+            <a class="btn btn-primary" href="https://buymeacoffee.com/paranneting/extras" target="_blank" rel="noopener">Book This</a>
+          </div>
+
+          <div class="offer-card popular">
+            <span class="popular-ribbon">Most Popular</span>
+            <h3>Play-Based Learning</h3>
+            <p>Discover how play is the natural language of childhood and a powerful tool for development. This initial consultation introduces strategies for using play to build connection, problem-solving, and creativity.</p>
+            <div class="offer-head">
+              <span class="offer-price">Free</span>
+              <span class="offer-duration">Initial Consultation</span>
+            </div>
+            <ul>
+              <li>Play strategies by age</li>
+              <li>Connection through play</li>
+              <li>Everyday learning moments</li>
+            </ul>
+            <a class="btn btn-primary" href="https://buymeacoffee.com/paranneting/extras" target="_blank" rel="noopener">Book This</a>
+          </div>
+
+          <div class="offer-card">
+            <h3>Social-Emotional Learning</h3>
+            <p>Learn how to help your child identify, express, and regulate emotions while building empathy and healthy relationships. This initial consultation provides a foundation for nurturing emotional intelligence at home.</p>
+            <div class="offer-head">
+              <span class="offer-price">Free</span>
+              <span class="offer-duration">Initial Consultation</span>
+            </div>
+            <ul>
+              <li>Emotion coaching tools</li>
+              <li>Self-regulation strategies</li>
+              <li>Building empathy</li>
+            </ul>
+            <a class="btn btn-primary" href="https://buymeacoffee.com/paranneting/extras" target="_blank" rel="noopener">Book This</a>
+          </div>
+
+          <div class="offer-card">
+            <h3>Creating a Regulating Home</h3>
+            <p>Design a home environment that promotes calm, safety, and co-regulation for the whole family. This initial consultation covers sensory-friendly spaces, daily rhythms, and routines that reduce stress.</p>
+            <div class="offer-head">
+              <span class="offer-price">Free</span>
+              <span class="offer-duration">Initial Consultation</span>
+            </div>
+            <ul>
+              <li>Calming environment design</li>
+              <li>Routine &amp; rhythm guidance</li>
+              <li>Whole-family regulation</li>
+            </ul>
+            <a class="btn btn-primary" href="https://buymeacoffee.com/paranneting/extras" target="_blank" rel="noopener">Book This</a>
+          </div>
         </div>
-        <div class="card">
-          <span class="stage">Ongoing</span>
-          <h3>Family Support Package</h3>
-          <p>A bundled program combining coaching, check-ins, and custom resources for families who want consistent support over a full season.</p>
-        </div>
-        <div class="card">
-          <span class="stage">Group</span>
-          <h3>Workshops</h3>
-          <p>Live, topic-specific sessions (tantrums, screen time, sibling rivalry, and more) for parents who learn best alongside others going through the same thing.</p>
-        </div>
-        <div class="card">
-          <span class="stage">Self-guided</span>
-          <h3>Resource Library Access</h3>
-          <p>Scripts, worksheets, and guides you can use on your own timeline, ideal alongside coaching or as a starting point.</p>
-        </div>
-        <div class="card">
-          <span class="stage">Custom</span>
-          <h3>Something Else in Mind?</h3>
-          <p>Every family is different. If none of the above quite fits, reach out and we'll figure out the right approach together.</p>
+      </div>
+
+      <div id="panel-digital" class="tab-panel" role="tabpanel">
+        <div class="membership-card" style="max-width:820px;margin:0 auto;">
+          <div>
+            <span class="eyebrow" style="color:var(--blush);">Monthly</span>
+            <h3>Monthly Resource Subscription</h3>
+            <p style="color:var(--blush);">New guides, tools, and expert interviews delivered to your inbox every month. Cancel anytime, always worth it.</p>
+            <ul>
+              <li>1 resource per month</li>
+              <li>Expert guest content</li>
+              <li>Archive access</li>
+              <li>Early access to new programs</li>
+            </ul>
+          </div>
+          <div class="membership-panel">
+            <div class="membership-price">$4.99<span> /month</span></div>
+            <p style="color:var(--blush);margin:14px 0 20px;">No commitment. Cancel anytime.</p>
+            <!-- Replace # with your Stripe Payment Link, see README -->
+            <a class="btn btn-primary" href="#" data-stripe-link-placeholder="true">Join This</a>
+          </div>
         </div>
       </div>
     </div>
@@ -85,12 +198,12 @@
       </div>
       <div class="stage-list">
         <div class="stage-item">
-          <h3>1. Book a free consult</h3>
-          <p>A no-pressure 20-minute call to talk through what's going on and see if we're a good fit.</p>
+          <h3>1. Book a free needs assessment</h3>
+          <p>A no-pressure 15-minute call to talk through what's going on and see if we're a good fit.</p>
         </div>
         <div class="stage-item">
           <h3>2. Pick your path</h3>
-          <p>Based on that conversation, we'll recommend a single session, an ongoing package, or a workshop.</p>
+          <p>Based on that conversation, we'll recommend a consultation session, ongoing support, or a workshop.</p>
         </div>
         <div class="stage-item">
           <h3>3. Start seeing changes</h3>
@@ -99,24 +212,17 @@
       </div>
     </div>
   </section>
-
-  <section class="band band-espresso">
-    <div class="wrap center">
-      <h2>Ready to talk through your family's specific situation?</h2>
-      <a class="btn btn-primary" href="https://tr.ee/_DA8OAI5lu" target="_blank" rel="noopener">Book a Free Consult</a>
-    </div>
-  </section>
 </main>
 
 <footer class="site-footer">
   <div class="wrap">
     <div>
-      <div class="logo" style="color:var(--white);">Paranne<span style="color:var(--rose-brown);">ting</span></div>
+      <div class="logo" style="color:var(--white);">Par<span style="color:var(--rose-brown);">anne</span>ting</div>
       <p style="margin-top:12px;max-width:36ch;">Practical parenting support for real families, at every stage.</p>
       <div class="social-row">
-        <a href="#" aria-label="Instagram" title="Instagram">IG</a>
-        <a href="#" aria-label="TikTok" title="TikTok">TT</a>
-        <a href="#" aria-label="Facebook" title="Facebook">FB</a>
+        <a href="https://www.instagram.com/paranneting/" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram">IG</a>
+        <a href="https://www.facebook.com/groups/1873389606666349" target="_blank" rel="noopener" aria-label="Facebook Group" title="Facebook Group">FG</a>
+        <a href="https://facebook.com/anne.reboa/" target="_blank" rel="noopener" aria-label="Facebook" title="Facebook">FB</a>
       </div>
     </div>
     <div>
@@ -124,7 +230,7 @@
       <ul>
         <li><a href="about.html">About</a></li>
         <li><a href="services.html">Services</a></li>
-        <li><a href="resources.html">Resources</a></li>
+        <li><a href="blog.html">Blog</a></li>
         <li><a href="collaborate.html">Collaborate</a></li>
       </ul>
     </div>
@@ -132,7 +238,7 @@
       <h4>Get in touch</h4>
       <ul>
         <li><a href="contact.html">Contact us</a></li>
-        <li><a href="https://tr.ee/_DA8OAI5lu" target="_blank" rel="noopener">Book a call</a></li>
+        <li><a href="https://buymeacoffee.com/paranneting/extras" target="_blank" rel="noopener">Book a call</a></li>
       </ul>
     </div>
   </div>

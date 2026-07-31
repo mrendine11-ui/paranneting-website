@@ -1,70 +1,78 @@
 # Paranneting Website
 
-A static, no-build website for Paranneting — Home, About, Services, Resources, Collaborate, and Contact pages. Plain HTML/CSS/JS, so it uploads straight to GitHub and hosts for free on GitHub Pages, no build tools required.
+A static, no-build website for Paranneting, built around Anne Reboa's real bio, philosophy, services, and pricing. Plain HTML/CSS/JS, uploads straight to GitHub and hosts free on GitHub Pages.
 
-**Brand:** cream / espresso / rose-brown palette, Playfair Display (headings) + Lora (body), matching the earlier Paranneting site.
+**Brand:** cream / espresso / rose-brown, storybook-editorial feel. Playfair Display (headings) + Lora (body).
 
 ## What's in here
 
 ```
 paranneting-site/
-├── index.html          Home
-├── about.html
-├── services.html
-├── resources.html
-├── collaborate.html
-├── contact.html         Includes a contact form (needs Formspree — see below)
-├── css/style.css        All styling, colors, and fonts live here
-├── js/main.js           Mobile nav toggle + basic form handling
-└── README.md            This file
+├── index.html                         Home
+├── about.html                         Anne's real bio + "Our Philosophy"
+├── services.html                      1-on-1 Coaching / Workshops / Membership (tabbed)
+├── blog.html                          Blog index
+├── blog-reading-is-foundational.html  First real blog post
+├── contact.html                       Contact form + real social links
+├── collaborate.html                   Brand/partnership page (linked from footer)
+├── css/style.css
+├── js/main.js                         Mobile nav, tab switching, form handling
+└── README.md
 ```
 
-## Before you upload: 3 things to update
+## Before you upload: 2 things still need real setup
 
-1. **Social links** — In every page's footer (and on the Contact page), the Instagram/TikTok/Facebook icons point to `#` placeholders. Search each file for `aria-label="Instagram"` etc. and swap in the real URLs.
-2. **Contact form** — The form in `contact.html` points to `https://formspree.io/f/YOUR_FORM_ID`. Create a free form at [formspree.io](https://formspree.io), and replace `YOUR_FORM_ID` with the ID it gives you so messages land in an inbox.
-3. **Booking link** — Currently set to `https://tr.ee/_DA8OAI5lu` in the nav, hero, and footer of every page. Update if that link ever changes (find-and-replace across all `.html` files).
+### 1. Stripe Payment Link for the $4.99/mo membership
 
-## Option A: Upload with no coding tools (easiest)
+The membership "Join the Membership" / "Join This" buttons on `index.html` and `services.html` currently point to `#` (they have a `data-stripe-link-placeholder="true"` attribute so they're easy to find).
 
-1. Go to [github.com](https://github.com) and log in (or create a free account).
-2. Click the **+** in the top right → **New repository**.
-3. Name it something like `paranneting-website`. Keep it **Public** (required for free GitHub Pages). Don't check "Add a README" since you already have one. Click **Create repository**.
-4. On the new repo page, click **uploading an existing file**.
-5. Drag in the entire contents of this folder (not the folder itself — select `index.html`, `about.html`, the `css` folder, the `js` folder, etc., all at once) and drop them into the upload area. GitHub will preserve the folder structure.
-6. Scroll down, add a commit message like "Initial site upload," and click **Commit changes**.
+Since you already have Stripe set up:
+1. In your Stripe Dashboard, go to **Payment Links** and create one for the $4.99/month recurring price.
+2. Copy the link Stripe gives you (looks like `https://buy.stripe.com/xxxxxxxx`).
+3. Find every `href="#" data-stripe-link-placeholder="true"` in `index.html` and `services.html` and replace `#` with your real Payment Link.
+4. You can remove the `data-stripe-link-placeholder="true"` attribute once it's live, it's just a marker to help you find them.
 
-## Option B: Upload with Git (if you're comfortable with the terminal)
+### 2. Contact form
 
+`contact.html` points to `https://formspree.io/f/YOUR_FORM_ID`. Create a free form at [formspree.io](https://formspree.io) and swap in your real form ID so messages land in an inbox. Per your call, `annereboa@gmail.com` isn't shown publicly on the site, it only needs to go into Formspree's notification settings.
+
+## What's real vs. placeholder right now
+
+- **Real, from Anne's own writing:** About page bio, the four "Our Philosophy" points, the full "Reading Is Foundational" blog post, all Services pricing/copy, the $4.99/mo membership details.
+- **Booking link:** used throughout is `https://buymeacoffee.com/paranneting/extras`, swap it across all files if it ever changes.
+- **Not yet built:** testimonials and a shop/digital-products section. These will get added once there's real content, rather than faking them.
+
+## Uploading to GitHub
+
+### Option A: No coding tools (easiest)
+1. Go to [github.com](https://github.com), log in, click **+** then **New repository**.
+2. Name it (e.g. `paranneting-website`), keep it **Public**, don't add a README (you already have one), click **Create repository**.
+3. Click **uploading an existing file**.
+4. Drag in everything from this folder (`index.html`, `css/`, `js/`, etc.) at once, GitHub preserves the folder structure.
+5. Commit with a message like "Site overhaul with real content."
+
+### Option B: Git
 ```bash
 cd paranneting-site
 git init
 git add .
-git commit -m "Initial site upload"
+git commit -m "Site overhaul with real content"
 git branch -M main
 git remote add origin https://github.com/YOUR-USERNAME/paranneting-website.git
 git push -u origin main
 ```
 
-## Turning it into a live website (GitHub Pages)
+If you're pushing this as an update to your existing repo instead of a new one, copy these files over your existing local clone and run:
+```bash
+git add .
+git commit -m "Site overhaul with real content"
+git push
+```
 
-1. In your repository on GitHub, click **Settings** (top right of the repo).
-2. In the left sidebar, click **Pages**.
-3. Under "Build and deployment" → "Source," select **Deploy from a branch**.
-4. Under "Branch," choose **main** and folder **/ (root)**, then click **Save**.
-5. Wait 1–2 minutes, then refresh the page. GitHub will show you a live URL, something like:
-   `https://YOUR-USERNAME.github.io/paranneting-website/`
-6. That's your live site. Every time you upload new changes to the `main` branch, it updates automatically within a minute or two.
-
-## Using a custom domain (optional)
-
-If you want it at `paranneting.com` instead of the github.io URL:
-1. In the same **Settings → Pages** screen, enter your domain under "Custom domain" and save. GitHub will create a `CNAME` file in your repo automatically.
-2. At your domain registrar (GoDaddy, Namecheap, etc.), add a CNAME record pointing to `YOUR-USERNAME.github.io`.
-3. DNS changes can take up to 24 hours to fully propagate.
+## GitHub Pages (if not already set up)
+Settings → Pages → Source: **Deploy from a branch** → Branch: **main**, folder **/ (root)** → Save. Live in 1–2 minutes at your `github.io` URL or your custom domain if already connected.
 
 ## Making future edits
-
-- Small text changes: click the pencil icon on any file directly on GitHub, edit, and commit.
-- Bigger changes: edit locally in a text editor (or ask Claude), then re-upload via Option A or push via Option B.
-- All colors and fonts are controlled from `css/style.css` under the `:root` section at the top, so a palette or font change only needs to happen in one place.
+- Small text tweaks: edit the file directly on GitHub (pencil icon) and commit.
+- Bigger changes: edit locally or ask Claude, then re-upload/push.
+- All colors and fonts live in `css/style.css` under `:root` at the top.
