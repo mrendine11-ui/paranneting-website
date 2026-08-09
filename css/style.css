@@ -553,9 +553,24 @@ footer.site-footer a:hover { color: var(--white); }
 }
 .article-hero-img {
   border-radius: var(--radius);
-  margin: 30px 0;
+  margin: 30px auto;
   aspect-ratio: 16/9;
   object-fit: cover;
+  max-width: 820px;
+  width: 100%;
+  display: block;
+}
+
+@media (max-width: 600px) {
+  .article-hero-img {
+    margin: 20px auto;
+    border-radius: 14px;
+    aspect-ratio: 4/3;
+  }
+  .article-header { padding: 0 4px; }
+  .article-body { font-size: 1rem; }
+  .article-body .stat-block,
+  .article-cta { padding: 18px 20px; }
 }
 .article-body {
   max-width: 680px;
@@ -586,4 +601,24 @@ footer.site-footer a:hover { color: var(--white); }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   * { transition: none !important; }
+}
+
+@media (max-width: 600px) {
+  body { font-size: 16px; }
+  .wrap { padding: 0 20px; }
+  .hero { padding: 44px 0 40px; }
+  section.band { padding: 44px 0; }
+  .hero-actions { flex-direction: column; align-items: stretch; }
+  .hero-actions .btn { text-align: center; }
+  .card, .offer-card { padding: 22px; }
+  .membership-card { padding: 26px 22px; gap: 24px; }
+  .membership-price { font-size: 2.1rem; }
+  .tabs { gap: 8px; }
+  .tab-btn { padding: 10px 16px; font-size: 0.88rem; flex: 1 1 auto; }
+  .popular-ribbon { left: 16px; top: -12px; font-size: 0.7rem; padding: 4px 12px; }
+  footer.site-footer .wrap { gap: 28px; }
+  .footer-bottom { flex-direction: column; align-items: flex-start; }
+  nav.main-nav ul li a.btn { width: 100%; text-align: center; }
+  .site-header .wrap { padding-top: 2px; padding-bottom: 2px; }
+  .nav-toggle { min-width: 44px; min-height: 44px; }
 }
