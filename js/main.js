@@ -29,15 +29,54 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  // Basic contact form handler (no backend wired up yet — see README)
+  // Contact form handler — submits to Formspree via fetch
   var form = document.querySelector('.contact-form');
   if (form) {
     form.addEventListener('submit', function (e) {
       e.preventDefault();
       var status = form.querySelector('.form-status');
-      if (status) {
-        status.textContent = "This form isn't connected to an inbox yet. See the README for how to wire it up with Formspree.";
+      var submitBtn = form.querySelector('button[type="submit"]');
+      var formData = new FormData(form);
+
+      if (submitBtn) {
+        submitBtn.disabled = true;
       }
+      if (status) {
+        status.textContent = 'Sending...';
+      }
+
+      fetch(form.action, {
+        method: 'POST',
+        body: formData,
+        headers: { 'Accept': 'application/json' }
+      })
+        .then(function (response) {
+          if (response.ok) {
+            if (status) {
+              status.textContent = "Thanks — your message has been sent. We'll get back to you soon.";
+            }
+            form.reset();
+          } else {
+            return response.json().then(function (data) {
+              var message = (data && data.errors && data.errors.length)
+                ? data.errors.map(function (err) { return err.message; }).join(', ')
+                : 'Something went wrong. Please try again or email us directly.';
+              if (status) {
+                status.textContent = message;
+              }
+            });
+          }
+        })
+        .catch(function () {
+          if (status) {
+            status.textContent = 'Something went wrong. Please try again or email us directly.';
+          }
+        })
+        .finally(function () {
+          if (submitBtn) {
+            submitBtn.disabled = false;
+          }
+        });
     });
   }
 });
