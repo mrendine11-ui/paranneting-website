@@ -29,6 +29,25 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
+  // Partner accordion (Partners page)
+  var partnerToggles = document.querySelectorAll('.partner-toggle');
+  if (partnerToggles.length) {
+    partnerToggles.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var expanded = btn.getAttribute('aria-expanded') === 'true';
+        var panel = document.getElementById(btn.getAttribute('aria-controls'));
+        btn.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+        if (panel) {
+          panel.hidden = expanded;
+        }
+        var chevron = btn.querySelector('.partner-chevron');
+        if (chevron) {
+          chevron.style.transform = expanded ? 'rotate(0deg)' : 'rotate(180deg)';
+        }
+      });
+    });
+  }
+
   // Contact form handler — submits to Formspree via fetch
   var form = document.querySelector('.contact-form');
   if (form) {
