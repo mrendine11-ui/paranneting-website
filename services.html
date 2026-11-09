@@ -327,5 +327,18 @@
 </footer>
 
 <script src="js/main.js"></script>
+<script>
+  // Open the tab named in the link (e.g. services.html#panel-inperson), even if main.js is out of date
+  document.addEventListener('DOMContentLoaded', function () {
+    var id = window.location.hash.replace('#', '');
+    if (!id) { return; }
+    var btn = document.querySelector('.tab-btn[data-tab="' + id + '"]');
+    if (btn) {
+      btn.click();
+      var tabs = btn.parentNode;
+      if (tabs && tabs.scrollIntoView) { tabs.scrollIntoView(); }
+    }
+  });
+</script>
 </body>
 </html>
