@@ -17,16 +17,31 @@ document.addEventListener('DOMContentLoaded', function () {
   // Service tabs
   var tabButtons = document.querySelectorAll('.tab-btn');
   if (tabButtons.length) {
-    tabButtons.forEach(function (btn) {
-      btn.addEventListener('click', function () {
-        var target = btn.getAttribute('data-tab');
-        tabButtons.forEach(function (b) { b.setAttribute('aria-selected', 'false'); });
-        btn.setAttribute('aria-selected', 'true');
-        document.querySelectorAll('.tab-panel').forEach(function (panel) {
-          panel.classList.toggle('active', panel.id === target);
-        });
+    var activateTab = function (btn) {
+      var target = btn.getAttribute('data-tab');
+      tabButtons.forEach(function (b) { b.setAttribute('aria-selected', 'false'); });
+      btn.setAttribute('aria-selected', 'true');
+      document.querySelectorAll('.tab-panel').forEach(function (panel) {
+        panel.classList.toggle('active', panel.id === target);
       });
+    };
+    tabButtons.forEach(function (btn) {
+      btn.addEventListener('click', function () { activateTab(btn); });
     });
+    // Open a tab directly from a link such as services.html#panel-inperson
+    var openFromHash = function () {
+      var id = window.location.hash.replace('#', '');
+      if (!id) { return; }
+      tabButtons.forEach(function (btn) {
+        if (btn.getAttribute('data-tab') === id) {
+          activateTab(btn);
+          var tabs = btn.parentNode;
+          if (tabs && tabs.scrollIntoView) { tabs.scrollIntoView(); }
+        }
+      });
+    };
+    openFromHash();
+    window.addEventListener('hashchange', openFromHash);
   }
 
   // Partner accordion (Partners page)
@@ -72,7 +87,7 @@ document.addEventListener('DOMContentLoaded', function () {
         .then(function (response) {
           if (response.ok) {
             if (status) {
-              status.textContent = "Thanks — your message has been sent. We'll get back to you soon.";
+              status.textContent = form.getAttribute('data-success') || "Thanks, your message has been sent. We'll get back to you soon.";
             }
             form.reset();
           } else {
